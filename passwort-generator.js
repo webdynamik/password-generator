@@ -13,11 +13,13 @@
     'use strict';
 
     var PasswortGenerator = function(options) {
-            if(options){
-                // other configs
-                this.options = options;
-            }
-        };
+                                                if(options){
+                                                    // other configs
+                                                    this.options = options;
+                                                }
+
+                                                this._init();
+                                            };
 
     PasswortGenerator.prototype = {
         version: '1.0.0',
@@ -35,7 +37,11 @@
         },
         _passwort: '',
 
-        merge_options: function(obj1,obj2){
+        _init: function(){
+            this.options = this.merge_options(this.options, this.default_options);
+        },
+
+        merge_options: function(obj2,obj1){
             var obj3 = {};
             for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
             for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
@@ -43,9 +49,9 @@
         },
 
         generate: function() {
-            this.options = this.merge_options(this.options, this.default_options);
 
-            var _i, _len, _passwort;
+            console.log(this.options);
+            var _i, _len, _passwort = '';
 
             if(this.options.lowercase){
                 _passwort += 'abcdefghijklmnopqrstuvwxyz';
@@ -60,7 +66,7 @@
             }
 
             if(this.options.special_character){
-                _passwort += ',.;:#+~*=&%$§!|/';
+                _passwort += ',.;:#+~*=&%$§!|/€@""^°`´';
             }
 
             if(this.options.brackets){
@@ -79,13 +85,14 @@
                 _passwort += ' ';
             }
 
+            console.log(_passwort);
             for (_i = 0, _len = this.options.length; _i < _len; _i++) {
                 this._passwort += _passwort.charAt(Math.floor(Math.random() * _passwort.length));
             }
         },
 
         set: function(param) {
-            this.options = this.merge_options(this.options,param);
+            this.options = this.merge_options(param,this.options);
         },
 
         get: function() {
