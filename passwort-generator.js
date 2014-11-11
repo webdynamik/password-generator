@@ -64,7 +64,7 @@
             }
 
             if(this.options.special_character){
-                _passwort += ',.;:#+~*=&%$§!|/€@""^°`´';
+                _passwort += ',.;:#+~*=&%$§!|/€@""^°`´\'\\';
             }
 
             if(this.options.brackets){
