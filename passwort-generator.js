@@ -1,4 +1,4 @@
-// passwort-generator.js 1.0.2
+// passwort-generator.js 1.0.3
 // http://passwort-generieren.de
 // (c) 2014 Jan Krause
 (function(name, context, definition) {
@@ -22,18 +22,18 @@
                                             };
 
     PasswortGenerator.prototype = {
-        version: '1.0.2',
+        version: '1.0.3',
         options: {},
         default_options: {
-            length: 8,
+            length: 11,
             lowercase: true,
             uppercase: true,
             numbers: true,
-            special_character: false,
-            brackets: false,
-            minus: false,
-            underscore: false,
-            space: false
+            special_character: true,
+            brackets: true,
+            minus: true,
+            underscore: true,
+            space: true
         },
         _passwort: '',
 
@@ -83,6 +83,7 @@
                 _passwort += ' ';
             }
 
+            this._passwort = '';
             for (_i = 0, _len = this.options.length; _i < _len; _i++) {
                 this._passwort += _passwort.charAt(Math.floor(Math.random() * _passwort.length));
             }
@@ -90,6 +91,8 @@
 
         set: function(param) {
             this.options = this.merge_options(param,this.options);
+
+            console.log(  this.options );
         },
 
         get: function() {
