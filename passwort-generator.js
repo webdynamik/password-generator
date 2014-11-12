@@ -7,12 +7,12 @@
     var root = this;
 
     var PasswortGenerator = function(options) {
-        if(options){
-            // other configs
-            this.options = options;
+        if(!options){
+            options = {};
+            options.el = this._document.body;
         }
 
-        this._init();
+        this.options = this.extend(options, this.default_options);
     };
 
     // Export the object for **Node.js**
@@ -28,6 +28,9 @@
     // Current version.
     PasswortGenerator.VERSION = '1.1.0';
 
+    //base
+    PasswortGenerator._document = document;
+
     PasswortGenerator.prototype = {
         options: {},
         default_options: {
@@ -42,10 +45,6 @@
             space: true
         },
         _passwort: '',
-
-        _init: function(){
-            this.options = this.extend(this.options, this.default_options);
-        },
 
         extend: function(options,defaults){
             var extended = {};
