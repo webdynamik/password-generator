@@ -1,28 +1,34 @@
-// passwort-generator.js 1.0.3
+// passwort-generator.js 1.1.0
 // http://passwort-generieren.de
 // (c) 2014 Jan Krause
-(function(name, context, definition) {
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports = definition();
-    } else if (typeof define === 'function' && define.amd) {
-        define(definition);
-    } else {
-        context[name] = definition();
-    }
-})('PasswortGenerator', this, function() {
-    'use strict';
+(function() {
+    "use strict";
+
+    var root = this;
 
     var PasswortGenerator = function(options) {
-                                                if(options){
-                                                    // other configs
-                                                    this.options = options;
-                                                }
+        if(options){
+            // other configs
+            this.options = options;
+        }
 
-                                                this._init();
-                                            };
+        this._init();
+    };
+
+    // Export the object for **Node.js**
+    if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = PasswortGenerator;
+        }
+        exports.PasswortGenerator = PasswortGenerator;
+    } else {
+        root.PasswortGenerator = PasswortGenerator;
+    }
+
+    // Current version.
+    PasswortGenerator.VERSION = '1.1.0';
 
     PasswortGenerator.prototype = {
-        version: '1.0.3',
         options: {},
         default_options: {
             length: 11,
@@ -38,14 +44,23 @@
         _passwort: '',
 
         _init: function(){
-            this.options = this.merge_options(this.options, this.default_options);
+            this.options = this.extend(this.options, this.default_options);
         },
 
-        merge_options: function(obj2,obj1){
-            var obj3 = {};
-            for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
-            for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
-            return obj3;
+        extend: function(options,defaults){
+            var extended = {};
+            var prop;
+            for (prop in defaults) {
+                if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+                    extended[prop] = defaults[prop];
+                }
+            }
+            for (prop in options) {
+                if (Object.prototype.hasOwnProperty.call(options, prop)) {
+                    extended[prop] = options[prop];
+                }
+            }
+            return extended;
         },
 
         generate: function() {
@@ -90,7 +105,7 @@
         },
 
         set: function(param) {
-            this.options = this.merge_options(param,this.options);
+            this.options = this.extend(param,this.options);
         },
 
         get: function() {
@@ -103,5 +118,4 @@
         }
     };
 
-    return PasswortGenerator;
-});
+}.call(this));
