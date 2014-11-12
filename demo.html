@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<form>
+    <fieldset>
+        <h5>Checkliste: Generator mit...</h5>
+        <input type="checkbox" name="lowercase" id="pwLow" checked="checked" onchange="onChange(this);">
+        <label for="pwLow">Kleinbuchstaben (a,b,c,...)</label>
+
+        <input type="checkbox" name="uppercase" id="pwUp" checked="checked" onchange="onChange(this);">
+        <label for="pwUp">Großbuchstaben (A,B,C,...)</label>
+
+        <input type="checkbox" name="numbers" id="pwNum" checked="checked" onchange="onChange(this);">
+        <label for="pwNum">Zahlen (0,1,2,...)</label>
+
+        <input type="checkbox" name="special_character" id="pwSpe" checked="checked" onchange="onChange(this);">
+        <label for="pwSpe">Sonderzeichen (!,$,=,...)</label>
+
+
+            <input type="checkbox" name="brackets" id="pwKlam" checked="checked" onchange="onChange(this);">
+            <label for="pwKlam">Klammern (&lt;,[,},...)</label>
+
+            <input type="checkbox" name="minus" id="pwMin" checked="checked" onchange="onChange(this);">
+            <label for="pwMin">Minus (-)</label>
+
+            <input type="checkbox" name="underscore" id="pwUl" checked="checked" onchange="onChange(this);">
+            <label for="pwUl">Unterstrich (_)</label>
+        
+            <input type="checkbox" name="space" id="pwSpace" checked="checked" onchange="onChange(this);">
+            <label for="pwSpace">Leerzeichen ( )</label>
+
+    </fieldset>
+    <fieldset>
+
+        <label for="pwLen">Passwortlänge</label>
+        <input type="text" name="length" value="11" id="pwLen"  onchange="onChange(this);">
+
+    </fieldset>
+</form>
+
+<h1 class="pw"></h1>
+
+<script src="passwort-generator.js"></script>
+<script>
+    var _options                    = _options || window._options || {};
+
+    _options.el = document.querySelector('.pw');
+    //        _options.length = 8;
+    //        _options.lowercase = true;
+    //        _options.uppercase = true;
+    //        _options.numbers = true;
+    //        _options.special_character = true;
+    //        _options.brackets = true;
+    //        _options.minus = true;
+    //        _options.underscore = true;
+    //        _options.space = true;
+
+    var passwort  = new PasswortGenerator(_options);
+
+    console.log( passwort.get() );
+
+    passwort.set({
+        length: 50,
+        lowercase: false,
+        uppercase: false,
+        numbers: false,
+        special_character: true,
+        brackets: false,
+        minus: false,
+        underscore: false,
+        space: false
+    });
+
+    passwort.render();
+
+
+    //set option with onChange event
+    function onChange(e) {
+        var obj = {};
+
+        if(e.name == 'length') {
+            obj[e.name] = parseInt(e.value);
+        } else {
+            obj[e.name] = e.checked ? true : false;
+        }
+
+        passwort.set(obj);
+        passwort.render();
+    }
+</script>
+
+</body>
+</html>

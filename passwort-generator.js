@@ -91,8 +91,6 @@
 
         set: function(param) {
             this.options = this.merge_options(param,this.options);
-
-            console.log(  this.options );
         },
 
         get: function() {
