@@ -63,43 +63,43 @@
         },
 
         generate: function() {
-            var _i, _len, _passwort = '';
+            var _i, _len, _passwortString = '';
 
             if(this.options.lowercase){
-                _passwort += 'abcdefghijklmnopqrstuvwxyz';
+                _passwortString += 'abcdefghijklmnopqrstuvwxyz';
             }
 
             if(this.options.uppercase){
-                _passwort += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                _passwortString += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             }
 
             if(this.options.numbers){
-                _passwort += '0123456789';
+                _passwortString += '0123456789';
             }
 
             if(this.options.special_character){
-                _passwort += ',.;:#+~*=&%$§!|/€@""^°`´\'\\';
+                _passwortString += ',.;:#+~*=&%$§!|/€@""^°`´\'\\';
             }
 
             if(this.options.brackets){
-                _passwort += '<>[](){}';
+                _passwortString += '<>[](){}';
             }
 
             if(this.options.minus){
-                _passwort += '-';
+                _passwortString += '-';
             }
 
             if(this.options.underscore){
-                _passwort += '_';
+                _passwortString += '_';
             }
 
             if(this.options.space){
-                _passwort += ' ';
+                _passwortString += ' ';
             }
 
             this._passwort = '';
             for (_i = 0, _len = this.options.length; _i < _len; _i++) {
-                this._passwort += _passwort.charAt(Math.floor(Math.random() * _passwort.length));
+                this._passwort += _passwortString.charAt(Math.floor(Math.random() * _passwortString.length));
             }
         },
 
