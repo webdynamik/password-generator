@@ -23,6 +23,15 @@ Online Demo: http://www.passwort-generieren.de/ (soon)
 
 ### Initialisation Example
 
+#### Basic
+
+```javascript
+    var passwort  = new PasswortGenerator();
+    console.log( passwort.get() );
+```
+
+#### Advanced
+
 ```javascript
 
 var _options  = _options || window._options || {};
