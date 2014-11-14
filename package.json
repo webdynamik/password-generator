@@ -1,0 +1,17 @@
+{
+    "name": "passwort-generator",
+    "version": "1.1.2",
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-qunit": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-lib-phantomjs": "*",
+        "grunt-contrib-qunit": "*",
+        "grunt-yslow": "*"
+    },
+
+    "scripts": {
+        "test": "grunt"
+    }
+}
