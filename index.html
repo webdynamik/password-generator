@@ -43,6 +43,11 @@
         <input type="text" name="length" value="11" id="pwLen"  onchange="onChange(this);">
 
     </fieldset>
+    <fieldset>
+
+        <input type="button" value="genereate" onclick="onClick(this);">
+
+    </fieldset>
 </form>
 
 <h1 class="pw" style="border-bottom: .2em solid gray;width: auto;display: inline-block; padding: .5em;"></h1>
@@ -62,7 +67,7 @@
     //        _options.underscore = true;
     //        _options.space = true;
 
-    var passwort  = new PasswortGenerator(_options);
+    var passwort  = new PasswordGenerator(_options);
 
     console.log( passwort.get() );
 /*
@@ -93,6 +98,12 @@
 
         passwort.set(obj);
         passwort.render();
+    }
+
+
+    function onClick(e){
+        passwort.render();
+        return false;
     }
 </script>
 
