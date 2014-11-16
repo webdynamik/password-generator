@@ -6,7 +6,7 @@
 
     var root = this;
 
-    var PasswortGenerator = function(options) {
+    var PasswordGenerator = function(options) {
         if(!options){
             options = {};
             options.el = document.body;
@@ -18,17 +18,17 @@
     // Export the object for **Node.js**
     if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = PasswortGenerator;
+            exports = module.exports = PasswordGenerator;
         }
-        exports.PasswortGenerator = PasswortGenerator;
+        exports.PasswordGenerator = PasswordGenerator;
     } else {
-        root.PasswortGenerator = PasswortGenerator;
+        root.PasswordGenerator = PasswordGenerator;
     }
 
     // Current version.
-    PasswortGenerator.VERSION = '1.1.2';
+    PasswordGenerator.VERSION = '1.1.2';
 
-    PasswortGenerator.prototype = {
+    PasswordGenerator.prototype = {
         options: {},
         default_options: {
             length: 11,
