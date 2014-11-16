@@ -7,7 +7,6 @@
         "grunt-contrib-watch": "*",
         "grunt-contrib-jshint": "*",
         "grunt-lib-phantomjs": "*",
-        "grunt-contrib-qunit": "*",
         "grunt-yslow": "*"
     },
 
