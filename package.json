@@ -1,12 +1,13 @@
 {
     "name": "passwort-generator",
-    "version": "1.2.3",
+    "version": "1.3.3",
     "devDependencies": {
         "grunt": "*",
         "grunt-contrib-qunit": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-jshint": "*",
         "grunt-lib-phantomjs": "*",
+        "blanket": "*",
         "grunt-yslow": "*"
     },
 
