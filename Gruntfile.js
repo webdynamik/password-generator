@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-yslow');
 
-    grunt.registerTask('all', ['jshint','qunit', 'yslow', 'shell']);
+    grunt.registerTask('all', ['jshint','qunit', 'shell']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['all']);
