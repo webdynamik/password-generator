@@ -68,7 +68,7 @@ QUnit.test( "Test for Lowercase", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok(a === a.toLowerCase() , "Result is lowercase" );
+        assert.ok(a === a.toLowerCase() , i + ". Result is lowercase" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -88,7 +88,7 @@ QUnit.test( "Test for Uppercase", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok(a === a.toUpperCase() , "Result is uppercase" );
+        assert.ok(a === a.toUpperCase() , i + ". Result is uppercase" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -108,7 +108,7 @@ QUnit.test( "Test for Numbers", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( !isNaN(parseFloat(a)) && isFinite(a) , "Result is number" );
+        assert.ok( !isNaN(parseFloat(a)) && isFinite(a) , i + ". Result is number" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -129,7 +129,7 @@ QUnit.test( "Test for special characters", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( !/,.;:#+~*=&%$§!|\/€@"^°`´\'\\/g.test(a) , "Result matches expectations" );
+        assert.ok( !/,.;:#+~*=&%$§!|\/€@"^°`´\'\\/g.test(a) , i + ". Result matches expectations" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -150,7 +150,7 @@ QUnit.test( "Test for brackets", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( !/<>[](){}/g.test(a) , "Result matches expectations" );
+        assert.ok( !/<>[](){}/g.test(a) , i + ". Result matches expectations" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -171,7 +171,7 @@ QUnit.test( "Test for minus", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( /\-/g.test(a) , "Result matches expectations" );
+        assert.ok( /\-/g.test(a) , i + ". Result matches expectations" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -192,7 +192,7 @@ QUnit.test( "Test for underscore", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( /_/g.test(a) , "Result matches expectations" );
+        assert.ok( /_/g.test(a) , i + ". Result matches expectations" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
@@ -213,7 +213,7 @@ QUnit.test( "Test for space", function( assert ) {
 
     for (i = 1; i <= 1000; i++) {
         var a = pw.get();
-        assert.ok( /\s/gi.test(a) , "Result matches expectations" );
+        assert.ok( /\s/gi.test(a) , i + ". Result matches expectations" );
         assert.ok(a.length == 50 , i + ". Result length is 50" );
     }
 });
