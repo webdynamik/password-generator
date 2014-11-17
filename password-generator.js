@@ -1,4 +1,4 @@
-// passwort-generator.js 1.3.3
+// passwort-generator.js
 // http://passwort-generieren.de
 // (c) 2014 Jan Krause
 (function() {
@@ -24,9 +24,6 @@
     } else {
         root.PasswordGenerator = PasswordGenerator;
     }
-
-    // Current version.
-    PasswordGenerator.VERSION = '1.3.3';
 
     PasswordGenerator.prototype = {
         options: {},
